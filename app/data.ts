@@ -11,15 +11,10 @@ type WorkExperience = {
   title: string
   start: string
   end: string
-  link: string
+  location?: string
+  link?: string
+  description?: string[]
   id: string
-}
-
-type BlogPost = {
-  title: string
-  description: string
-  link: string
-  uid: string
 }
 
 type SocialLink = {
@@ -49,71 +44,55 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
-    title: 'CEO',
+    company: 'CustomDevs',
+    title: 'RoR Developer',
     start: '2024',
     end: 'Present',
-    link: 'https://ibelick.com',
+    description: [
+      "Design and maintain SaaS web applications using Ruby on Rails.",
+      "Maintainer of a software system for independent yoga studios.",
+      "Maintainer of a pricing software for HVAC, electrical, plumbing, and chimney contractors.",
+      "Managed Heroku services, handling app upgrades and PostgreSQL version updates."
+    ],
+    location: 'Buenos Aires, Argentina',
+    link: 'https://www.customdevs.llc/es',
     id: 'work1',
   },
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
+    company: 'CodigoDelSur',
+    title: 'RoR Developer',
     start: '2022',
     end: '2024',
-    link: 'https://ibelick.com',
+    description: ['Maintainer of an inventory management system for a multinational coffee company.'],
+    location: 'Montevideo, Uruguay',
+    link: 'https://codigodelsur.com/',
     id: 'work2',
   },
   {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
+    company: 'Snappler',
+    title: 'RoR Developer',
+    start: '2021',
+    end: '2022',
+    description: ['Participated in the development of Banda Invitada (https://www.bandainvitada.com) from scratch, a platform that connects venues and musicians.'],
+    location: 'Buenos Aires, Argentina',
+    link: 'https://snappler.com/',
     id: 'work3',
-  },
-]
-
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-    description: 'How AI is changing the way we design',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-1',
-  },
-  {
-    title: 'Why I left my job to start my own company',
-    description:
-      'A deep dive into my decision to leave my job and start my own company',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-2',
-  },
-  {
-    title: 'What I learned from my first year of freelancing',
-    description:
-      'A look back at my first year of freelancing and what I learned',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-3',
   },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
-  },
-  {
-    label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    link: 'https://github.com/gastonginestet',
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
+    link: 'https://www.linkedin.com/in/gastonginestet',
   },
   {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    label: 'X',
+    link: 'https://x.com/gast0n_g',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'gastonginestet@gmail.com'
