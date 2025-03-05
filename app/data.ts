@@ -73,7 +73,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'RoR Developer',
     start: '2021',
     end: '2022',
-    description: ['Participated in the development of Banda Invitada (https://www.bandainvitada.com) from scratch, a platform that connects venues and musicians.'],
+    description: ['Participated in the development of Banda Invitada from scratch, a platform that connects venues and musicians in Buenos Aires.'],
     location: 'Buenos Aires, Argentina',
     link: 'https://snappler.com/',
     id: 'work3',
