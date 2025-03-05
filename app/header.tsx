@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="mb-8 flex items-center space-x-4">
       <Image
-        src="/gaston.png"
+        src="/gaston.jpg"
         alt="Gaston Ginestet"
         width={125}
         height={125}
