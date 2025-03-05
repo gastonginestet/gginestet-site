@@ -91,4 +91,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
 ]
 
-export const EMAIL = 'gastonginestet@gmail.com'
+export const EMAIL = 'gastonauginestet@gmail.com'
