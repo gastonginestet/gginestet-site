@@ -89,6 +89,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/gastonginestet',
   },
+  {
+    label: 'Medium',
+    link: 'https://medium.com/@gastonginestet',
+  },
 ]
 
 export const EMAIL = 'gastonauginestet@gmail.com'

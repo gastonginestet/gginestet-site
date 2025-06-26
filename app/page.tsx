@@ -192,6 +192,26 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Community Contributions</h3>
+        <ul className="space-y-3 text-zinc-600 dark:text-zinc-400">
+          <li>
+            🗣️ Talk:{" "}
+            <a
+              href="https://ruby.com.ar/meetup/2025_04.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              De cero contexto a full upgrade – Ruby Argentina Meetup (Abril 2025)
+            </a>
+          </li>
+        </ul>
+      </motion.section>
+
 
       <motion.section
         variants={VARIANTS_SECTION}
