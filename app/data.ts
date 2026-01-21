@@ -6,6 +6,11 @@ type Project = {
   id: string
 }
 
+type WorkProject = {
+  name: string
+  link: string
+}
+
 type WorkExperience = {
   company: string
   title: string
@@ -14,6 +19,7 @@ type WorkExperience = {
   location?: string
   link?: string
   description?: string[]
+  projects?: WorkProject[]
   id: string
 }
 
@@ -44,36 +50,89 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'CustomDevs',
-    title: 'RoR Developer',
-    start: '2024',
+    company: 'Seta Workshop',
+    title: 'Backend Software Engineer (Ruby on Rails)',
+    start: '2025',
     end: 'Present',
     description: [
-      "Design and maintain SaaS web applications using Ruby on Rails.",
-      "Maintainer of a software system for independent yoga studios.",
-      "Maintainer of a pricing software for HVAC, electrical, plumbing, and chimney contractors.",
-      "Managed Heroku services, handling app upgrades and PostgreSQL version updates."
+      'Backend engineer on a high-scale automotive SaaS platform for dealerships.',
+      'Architected and implemented a multi-queue communication ticket system.',
+      'Developed agent performance metrics and analytics features.',
+      'Built RESTful APIs with role-based access control.',
+      'Implemented SMS campaign tooling, push notifications, and automated retention reporting.',
+      'Reduced technical debt by removing legacy payment integration (Chargify).',
     ],
-    location: 'Buenos Aires, Argentina',
+    projects: [
+      {
+        name: 'BizzyCar',
+        link: 'https://www.bizzycar.com/',
+      },
+    ],
+    location: 'Uruguay (Remote)',
+    link: 'https://setaworkshop.com/',
+    id: 'work0',
+  },
+  {
+    company: 'CustomDevs',
+    title: 'Ruby on Rails Developer',
+    start: '2024',
+    end: '2025',
+    description: [
+      'Design and maintain SaaS web applications using Ruby on Rails.',
+      'Maintainer of a software system for independent yoga studios.',
+      'Maintainer of a pricing software for HVAC, electrical, plumbing, and chimney contractors.',
+      'Managed Heroku services, handling app upgrades and PostgreSQL version updates.',
+    ],
+    projects: [
+      {
+        name: 'The New Flat Rate',
+        link: 'https://thenewflatrate.com/',
+      },
+      {
+        name: 'Tula Yoga Studio',
+        link: 'https://tulayoga.studio/',
+      },
+      {
+        name: 'OSP School',
+        link: 'https://ospschool.com/',
+      },
+    ],
+    location: 'Argentina (Remote)',
     link: 'https://www.customdevs.llc/es',
     id: 'work1',
   },
   {
     company: 'CodigoDelSur',
-    title: 'RoR Developer',
+    title: 'Ruby on Rails Developer',
     start: '2022',
     end: '2024',
-    description: ['Maintainer of an inventory management system for a multinational coffee company.'],
-    location: 'Montevideo, Uruguay',
+    description: [
+      'Maintainer of an inventory management system for a multinational coffee company.',
+    ],
+    projects: [
+      {
+        name: 'Caravela – Atlas',
+        link: 'https://caravela.coffee/',
+      },
+    ],
+    location: 'Uruguay (Remote)',
     link: 'https://codigodelsur.com/',
     id: 'work2',
   },
   {
     company: 'Snappler',
-    title: 'RoR Developer',
+    title: 'Ruby on Rails Developer',
     start: '2021',
     end: '2022',
-    description: ['Participated in the development of Banda Invitada from scratch, a platform that connects venues and musicians in Buenos Aires.'],
+    description: [
+      'Development of Banda Invitada from scratch, a platform that connects venues and musicians in Buenos Aires.',
+    ],
+    projects: [
+      {
+        name: 'Banda Invitada',
+        link: 'https://www.bandainvitada.com/',
+      },
+    ],
     location: 'Buenos Aires, Argentina',
     link: 'https://snappler.com/',
     id: 'work3',

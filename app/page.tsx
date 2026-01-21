@@ -144,13 +144,13 @@ export default function Personal() {
           {WORK_EXPERIENCE.map((job) => (
             <div
               key={job.id}
-              className="flex items-center space-x-6 rounded-xl p-6"
+              className="flex items-start space-x-6 rounded-xl p-6"
             >
-              <div className="flex-shrink-0 text-sm text-zinc-400 dark:text-zinc-500 w-32">
-                <span>{job.start} — {job.end}</span>
+              <div className="flex-shrink-0 w-32 text-sm text-zinc-400 dark:text-zinc-500">
+                {job.start} — {job.end}
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 space-y-2">
                 <div className="font-medium text-zinc-800 dark:text-zinc-200">
                   <a
                     href={job.link}
@@ -162,31 +162,37 @@ export default function Personal() {
                   </a>
                 </div>
 
-                <div className="text-md text-zinc-500 dark:text-zinc-400">
-                  {job.location}
-                </div>
+                {job.location && (
+                  <div className="text-sm text-zinc-500 dark:text-zinc-400">
+                    {job.location}
+                  </div>
+                )}
 
-                <div className="text-sm text-zinc-600 dark:text-zinc-300 mt-2">
-                  {job.description?.map((line, index) => (
-                    <p key={index} className="mb-2">
-                      {line.split(/(https?:\/\/\S+)/g).map((part, i) =>
-                        part.match(/https?:\/\/\S+/) ? (
-                          <a
-                            key={i}
-                            href={part}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:underline"
-                          >
-                            {part}
-                          </a>
-                        ) : (
-                          part
-                        )
-                      )}
-                    </p>
-                  ))}
-                </div>
+                {job.projects && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {job.projects.map((project) => (
+                      <a
+                        key={project.name}
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                      >
+                        {project.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {job.description && (
+                  <div className="pt-2 text-sm text-zinc-600 dark:text-zinc-300">
+                    {job.description.map((line, index) => (
+                      <p key={index} className="mb-2">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
