@@ -60,7 +60,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Developed agent performance metrics and analytics features.',
       'Built RESTful APIs with role-based access control.',
       'Implemented SMS campaign tooling, push notifications, and automated retention reporting.',
-      'Reduced technical debt by removing legacy payment integration (Chargify).',
+      'Reduced technical debt',
     ],
     projects: [
       {
