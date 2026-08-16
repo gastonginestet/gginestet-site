@@ -5,6 +5,7 @@ import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
 import { LanguageProvider } from './language-context'
+import { WEBSITE_URL } from '@/lib/constants'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -15,10 +16,28 @@ export const viewport: Viewport = {
   ],
 }
 
+const title = 'Gastón Ginestet — Software Engineer'
+const description =
+  'Personal website of Gastón Ginestet, a Ruby on Rails software engineer based in Buenos Aires, Argentina.'
+
 export const metadata: Metadata = {
-  title: 'Gastón Ginestet',
-  description:
-    'This is the personal website of Gastón Ginestet, a software engineer based in Buenos Aires, Argentina.',
+  metadataBase: new URL(WEBSITE_URL),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: WEBSITE_URL,
+    siteName: 'Gastón Ginestet',
+    type: 'website',
+    locale: 'en_US',
+    alternateLocale: 'es_AR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 const archivo = Archivo({
