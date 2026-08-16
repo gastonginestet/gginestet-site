@@ -4,6 +4,7 @@ import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
 import { ThemeProvider } from 'next-themes'
+import { LanguageProvider } from './language-context'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -40,11 +41,13 @@ export default function RootLayout({
           storageKey="theme"
           defaultTheme="system"
         >
-          <div className="flex min-h-screen w-full flex-col">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <LanguageProvider>
+            <div className="flex min-h-screen w-full flex-col">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

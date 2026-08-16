@@ -11,15 +11,20 @@ type WorkProject = {
   link: string
 }
 
+type WorkExperienceLocale = {
+  title: string
+  location: string
+  description: string[]
+}
+
 type WorkExperience = {
   company: string
-  title: string
   start: string
   end: string
-  location?: string
   link?: string
-  description?: string[]
   projects?: WorkProject[]
+  en: WorkExperienceLocale
+  es: WorkExperienceLocale
   id: string
 }
 
@@ -51,38 +56,45 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Seta Workshop',
-    title: 'Backend Software Engineer (Ruby on Rails)',
     start: '2025',
     end: 'Present',
-    description: [
-      'Backend engineer on a high-scale automotive SaaS platform for dealerships.',
-      'Architected and implemented a multi-queue communication ticket system.',
-      'Developed agent performance metrics and analytics features.',
-      'Built RESTful APIs with role-based access control.',
-      'Implemented SMS campaign tooling, push notifications, and automated retention reporting.',
-      'Reduced technical debt',
-    ],
     projects: [
       {
         name: 'BizzyCar',
         link: 'https://www.bizzycar.com/',
       },
     ],
-    location: 'Uruguay (Remote)',
     link: 'https://setaworkshop.com/',
+    en: {
+      title: 'Ruby on Rails Developer',
+      location: 'Uruguay (Remote)',
+      description: [
+        'Backend engineer on a high-scale automotive SaaS platform for dealerships.',
+        'Architected and implemented a multi-queue communication ticket system.',
+        'Developed agent performance metrics and analytics features.',
+        'Built RESTful APIs with role-based access control.',
+        'Implemented SMS campaign tooling, push notifications, and automated retention reporting.',
+        'Reduced technical debt.',
+      ],
+    },
+    es: {
+      title: 'Desarrollador Ruby on Rails',
+      location: 'Uruguay (Remoto)',
+      description: [
+        'Ingeniero backend en una plataforma SaaS automotriz de alta escala para concesionarias.',
+        'Diseñé e implementé un sistema de tickets de comunicación con múltiples colas.',
+        'Desarrollé métricas de desempeño de agentes y funciones de analítica.',
+        'Construí APIs RESTful con control de acceso basado en roles.',
+        'Implementé campañas de SMS, notificaciones push y reportes automáticos de retención.',
+        'Reduje deuda técnica.',
+      ],
+    },
     id: 'work0',
   },
   {
     company: 'CustomDevs',
-    title: 'Ruby on Rails Developer',
     start: '2024',
     end: '2025',
-    description: [
-      'Design and maintain SaaS web applications using Ruby on Rails.',
-      'Maintainer of a software system for independent yoga studios.',
-      'Maintainer of a pricing software for HVAC, electrical, plumbing, and chimney contractors.',
-      'Managed Heroku services, handling app upgrades and PostgreSQL version updates.',
-    ],
     projects: [
       {
         name: 'The New Flat Rate',
@@ -97,44 +109,81 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         link: 'https://ospschool.com/',
       },
     ],
-    location: 'Argentina (Remote)',
     link: 'https://www.customdevs.llc/es',
+    en: {
+      title: 'Ruby on Rails Developer',
+      location: 'Argentina (Remote)',
+      description: [
+        'Design and maintain SaaS web applications using Ruby on Rails.',
+        'Maintainer of a software system for independent yoga studios.',
+        'Maintainer of a pricing software for HVAC, electrical, plumbing, and chimney contractors.',
+        'Managed Heroku services, handling app upgrades and PostgreSQL version updates.',
+      ],
+    },
+    es: {
+      title: 'Desarrollador Ruby on Rails',
+      location: 'Argentina (Remoto)',
+      description: [
+        'Diseño y mantengo aplicaciones web SaaS usando Ruby on Rails.',
+        'Mantenedor de un sistema de software para estudios de yoga independientes.',
+        'Mantenedor de un software de cotización para contratistas de HVAC, electricidad, plomería y chimeneas.',
+        'Gestioné servicios en Heroku, incluyendo actualizaciones de la app y de versiones de PostgreSQL.',
+      ],
+    },
     id: 'work1',
   },
   {
     company: 'CodigoDelSur',
-    title: 'Ruby on Rails Developer',
     start: '2022',
     end: '2024',
-    description: [
-      'Maintainer of an inventory management system for a multinational coffee company.',
-    ],
     projects: [
       {
         name: 'Caravela – Atlas',
         link: 'https://caravela.coffee/',
       },
     ],
-    location: 'Uruguay (Remote)',
     link: 'https://codigodelsur.com/',
+    en: {
+      title: 'Ruby on Rails Developer',
+      location: 'Uruguay (Remote)',
+      description: [
+        'Maintainer of an inventory management system for a multinational coffee company.',
+      ],
+    },
+    es: {
+      title: 'Desarrollador Ruby on Rails',
+      location: 'Uruguay (Remoto)',
+      description: [
+        'Mantenedor de un sistema de gestión de inventario para una empresa multinacional de café.',
+      ],
+    },
     id: 'work2',
   },
   {
     company: 'Snappler',
-    title: 'Ruby on Rails Developer',
     start: '2021',
     end: '2022',
-    description: [
-      'Development of Banda Invitada from scratch, a platform that connects venues and musicians in Buenos Aires.',
-    ],
     projects: [
       {
         name: 'Banda Invitada',
         link: 'https://www.bandainvitada.com/',
       },
     ],
-    location: 'Buenos Aires, Argentina',
     link: 'https://snappler.com/',
+    en: {
+      title: 'Ruby on Rails Developer',
+      location: 'Buenos Aires, Argentina',
+      description: [
+        'Development of Banda Invitada from scratch, a platform that connects venues and musicians in Buenos Aires.',
+      ],
+    },
+    es: {
+      title: 'Desarrollador Ruby on Rails',
+      location: 'Buenos Aires, Argentina',
+      description: [
+        'Desarrollo de Banda Invitada desde cero, una plataforma que conecta venues y músicos en Buenos Aires.',
+      ],
+    },
     id: 'work3',
   },
 ]
