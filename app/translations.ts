@@ -19,9 +19,12 @@ export type TranslationSet = {
   freelanceHeading: string
   freelanceText: string
   freelanceCta: string
+  freelanceCtaSending: string
   formNameLabel: string
   formEmailLabel: string
   formMessageLabel: string
+  formSuccess: string
+  formError: string
   canHelpWith: string
   freelanceServices: string[]
   connectHeading: string
@@ -51,9 +54,12 @@ export const TRANSLATIONS: Record<Lang, TranslationSet> = {
     freelanceText:
       'Open to freelance projects in general, from new builds to modernizing legacy systems, with AI-assisted workflows to move fast without sacrificing quality. Drop me a note below.',
     freelanceCta: 'Send',
+    freelanceCtaSending: 'Sending…',
     formNameLabel: 'Name',
     formEmailLabel: 'Email',
     formMessageLabel: 'Tell me about your project',
+    formSuccess: "Thanks! I'll get back to you soon.",
+    formError: 'Something went wrong. Please try again or email me directly.',
     canHelpWith: 'Can help with',
     freelanceServices: [
       'New web applications, from scratch',
@@ -80,16 +86,19 @@ export const TRANSLATIONS: Record<Lang, TranslationSet> = {
     atLabel: 'en',
     offClockHeading: 'Tiempo libre',
     offClockText:
-      'Cuando no estoy programando, estoy buscando un buen lugar para tomar café, saliendo a correr, o probando un deporte nuevo como snowboard o surf (o tratando de no caerme). Actualmente entrenando para una carrera de trail y una media maratón.',
+      'Cuando no estoy programando, estoy buscando un buen lugar para tomar café, saliendo a correr, o probando un deporte nuevo como snowboard o surf (tratando de no caerme de la tabla). Actualmente estoy entrenando para una carrera de trail y una media maratón.',
     communityHeading: 'Contribuciones a la comunidad',
     communityTalkLabel: 'Charla:',
     freelanceHeading: '¿Querés trabajar conmigo?',
     freelanceText:
       'Estoy abierto a proyectos freelance en general: desarrollos nuevos o modernización de sistemas existentes, usando herramientas de IA para avanzar rápido sin resignar calidad. Dejame tu mensaje abajo.',
     freelanceCta: 'Enviar',
+    freelanceCtaSending: 'Enviando…',
     formNameLabel: 'Nombre',
     formEmailLabel: 'Email',
     formMessageLabel: 'Contame sobre tu proyecto',
+    formSuccess: 'Gracias, te voy a responder pronto.',
+    formError: 'Algo salió mal. Probá de nuevo o escribime directamente.',
     canHelpWith: 'Puedo ayudarte con',
     freelanceServices: [
       'Aplicaciones web nuevas, desde cero',
