@@ -1,193 +1,108 @@
-'use client'
-import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
-import { Magnetic } from '@/components/ui/magnetic'
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
-import {
-  WORK_EXPERIENCE,
-  EMAIL,
-  SOCIAL_LINKS,
-} from './data'
+import { ArrowUpRight } from 'lucide-react'
+import { WORK_EXPERIENCE, EMAIL, SOCIAL_LINKS } from './data'
 
-const VARIANTS_CONTAINER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
+const STACK = ['Ruby on Rails', 'PostgreSQL', 'React', 'Heroku', 'Claude', 'Cursor']
 
-const VARIANTS_SECTION = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
-}
+const tagClassName =
+  'inline-flex items-center border border-accent px-2.5 py-[3px] text-[11px] tracking-[0.02em] text-accent no-underline transition-[background-color,color,transform] duration-150 ease-out hover:-translate-y-0.5 hover:bg-accent hover:text-bg'
 
-const TRANSITION_SECTION = {
-  duration: 0.3,
-}
-
-type ProjectVideoProps = {
-  src: string
-}
-
-function ProjectVideo({ src }: ProjectVideoProps) {
-  return (
-    <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
-    >
-      <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
-          }}
-        >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
-  )
-}
-
-function MagneticSocialLink({
+function Tag({
+  href,
   children,
-  link,
 }: {
+  href?: string
   children: React.ReactNode
-  link: string
 }) {
-  return (
-    <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+  if (href) {
+    return (
       <a
-        href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={tagClassName}
       >
         {children}
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-3 w-3"
-        >
-          <path
-            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-            fill="currentColor"
-            fillRule="evenodd"
-            clipRule="evenodd"
-          ></path>
-        </svg>
       </a>
-    </Magnetic>
+    )
+  }
+  return <span className={tagClassName}>{children}</span>
+}
+
+function ButtonLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group inline-flex items-center gap-1.5 border border-divider px-4 py-2 text-sm font-extrabold text-text no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:bg-text/[0.07] hover:shadow-sm active:translate-y-0 active:bg-text/[0.14]"
+    >
+      {children}
+      <ArrowUpRight
+        className="h-3 w-3 transition-transform duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+        strokeWidth={2}
+      />
+    </a>
   )
 }
 
 export default function Personal() {
   return (
-    <motion.main
-      className="space-y-24"
-      variants={VARIANTS_CONTAINER}
-      initial="hidden"
-      animate="visible"
-    >
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-          I am a Ruby on Rails developer with experience in creating scalable and intuitive web applications.
-          Currently working at CustomDevs, I specialize in SaaS web applications, and I have a background in
-          full-stack development, including React, PostgreSQL, and Heroku management.
-          </p>
+    <main className="mx-auto w-full max-w-[1200px] px-5 pb-16 min-[760px]:px-8 min-[760px]:pb-24">
+      <section className="mt-14">
+        <h3 className="mb-4 text-[25px]">Stack</h3>
+        <div className="flex flex-wrap gap-2">
+          {STACK.map((item) => (
+            <Tag key={item}>{item}</Tag>
+          ))}
         </div>
-      </motion.section>
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
-        <div className="space-y-6">
+      </section>
+
+      <hr className="my-10 h-0.5 border-0 bg-divider" />
+
+      <section>
+        <h3 className="mb-4 text-[25px]">Work Experience</h3>
+        <div>
           {WORK_EXPERIENCE.map((job) => (
             <div
               key={job.id}
-              className="flex items-start space-x-6 rounded-xl p-6"
+              className="grid grid-cols-1 gap-1.5 border-b border-divider py-5 min-[760px]:grid-cols-[140px_1fr] min-[760px]:gap-6"
             >
-              <div className="flex-shrink-0 w-32 text-sm text-zinc-400 dark:text-zinc-500">
+              <div className="text-xs tracking-[0.05em] text-text/55 uppercase">
                 {job.start} — {job.end}
               </div>
-
-              <div className="flex-1 space-y-2">
-                <div className="font-medium text-zinc-800 dark:text-zinc-200">
-                  <a
-                    href={job.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    {job.title} at {job.company}
-                  </a>
-                </div>
-
+              <div>
+                <a
+                  href={job.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[17px] font-extrabold text-text no-underline hover:underline"
+                >
+                  {job.title} at {job.company}
+                </a>
                 {job.location && (
-                  <div className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <div className="mt-1 text-[13px] text-text/60">
                     {job.location}
                   </div>
                 )}
-
                 {job.projects && (
-                  <div className="flex flex-wrap gap-2 pt-1">
+                  <div className="mt-2.5 flex flex-wrap gap-2">
                     {job.projects.map((project) => (
-                      <a
-                        key={project.name}
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-                      >
+                      <Tag key={project.name} href={project.link}>
                         {project.name}
-                      </a>
+                      </Tag>
                     ))}
                   </div>
                 )}
-
                 {job.description && (
-                  <div className="pt-2 text-sm text-zinc-600 dark:text-zinc-300">
+                  <div className="mt-2.5">
                     {job.description.map((line, index) => (
-                      <p key={index} className="mb-2">
+                      <p key={index} className="mb-1.5 text-[13px] text-text/75">
                         {line}
                       </p>
                     ))}
@@ -197,62 +112,53 @@ export default function Personal() {
             </div>
           ))}
         </div>
-      </motion.section>
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Community Contributions</h3>
-        <ul className="space-y-3 text-zinc-600 dark:text-zinc-400">
-          <li>
-            🗣️ Talk:{" "}
+      </section>
+
+      <section className="mt-10">
+        <h3 className="mb-4 text-[25px]">Off the Clock</h3>
+        <p className="max-w-[60ch] text-[15px] text-text/85">
+          When I&apos;m not writing code, I&apos;m out hunting for a good
+          coffee spot, going for a run, or picking up a new sport like
+          snowboarding or surfing (or trying to not fall). Currently
+          training for an upcoming trail race and a half marathon.
+        </p>
+      </section>
+
+      <hr className="my-10 h-0.5 border-0 bg-divider" />
+
+      <section>
+        <h3 className="mb-4 text-[25px]">Community Contributions</h3>
+        <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+          <li className="text-[15px] text-text/85">
+            Talk:{' '}
             <a
               href="https://ruby.com.ar/meetup/2025_04.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
             >
-              De cero contexto a full upgrade – Ruby Argentina Meetup (Abril 2025)
+              De cero contexto a full upgrade — Ruby Argentina Meetup (Abril
+              2025)
             </a>
           </li>
         </ul>
-      </motion.section>
+      </section>
 
+      <hr className="my-10 h-0.5 border-0 bg-divider" />
 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
+      <section>
+        <h3 className="mb-4 text-[25px]">Connect</h3>
+        <p className="mb-5 text-[15px] text-text/85">
           Feel free to contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </p>
-        <div className="flex items-center justify-start space-x-3">
+        <div className="flex flex-wrap gap-2.5">
           {SOCIAL_LINKS.map((link) => (
-            <MagneticSocialLink key={link.label} link={link.link}>
+            <ButtonLink key={link.label} href={link.link}>
               {link.label}
-            </MagneticSocialLink>
+            </ButtonLink>
           ))}
         </div>
-      </motion.section>
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <p className="text-zinc-600 dark:text-zinc-400">
-          You can download my CV by clicking the link below:
-        </p>
-        <a
-          href="/gaston_ginestet_cv.pdf"
-          download
-          className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
-        >
-          Download CV
-        </a>
-      </motion.section>
-    </motion.main>
+      </section>
+    </main>
   )
 }

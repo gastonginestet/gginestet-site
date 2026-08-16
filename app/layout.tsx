@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Archivo } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
@@ -8,7 +8,10 @@ import { ThemeProvider } from 'next-themes'
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#ffffff',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f3f2f2' },
+    { media: '(prefers-color-scheme: dark)', color: '#1c1a19' },
+  ],
 }
 
 export const metadata: Metadata = {
@@ -17,13 +20,9 @@ export const metadata: Metadata = {
     'This is the personal website of Gastón Ginestet, a software engineer based in Buenos Aires, Argentina.',
 }
 
-const geist = Geist({
-  variable: '--font-geist',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const archivo = Archivo({
+  variable: '--font-archivo',
+  weight: ['400', '600', '800'],
   subsets: ['latin'],
 })
 
@@ -34,21 +33,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
-      >
+      <body className={`${archivo.variable} bg-bg font-sans text-text antialiased`}>
         <ThemeProvider
           enableSystem={true}
           attribute="class"
           storageKey="theme"
           defaultTheme="system"
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
-              <Header />
-              {children}
-              <Footer />
-            </div>
+          <div className="flex min-h-screen w-full flex-col">
+            <Header />
+            {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

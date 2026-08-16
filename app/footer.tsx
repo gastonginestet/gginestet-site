@@ -1,26 +1,13 @@
 'use client'
 import { AnimatedBackground } from '@/components/ui/animated-background'
-import { TextLoop } from '@/components/ui/text-loop'
 import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-const THEMES_OPTIONS = [
-  {
-    label: 'Light',
-    id: 'light',
-    icon: <SunIcon className="h-4 w-4" />,
-  },
-  {
-    label: 'Dark',
-    id: 'dark',
-    icon: <MoonIcon className="h-4 w-4" />,
-  },
-  {
-    label: 'System',
-    id: 'system',
-    icon: <MonitorIcon className="h-4 w-4" />,
-  },
+const THEME_OPTIONS = [
+  { label: 'Light', id: 'light', icon: SunIcon },
+  { label: 'Dark', id: 'dark', icon: MoonIcon },
+  { label: 'System', id: 'system', icon: MonitorIcon },
 ]
 
 function ThemeSwitch() {
@@ -37,7 +24,7 @@ function ThemeSwitch() {
 
   return (
     <AnimatedBackground
-      className="pointer-events-none rounded-lg bg-zinc-100 dark:bg-zinc-800"
+      className="bg-accent"
       defaultValue={theme}
       transition={{
         type: 'spring',
@@ -49,36 +36,27 @@ function ThemeSwitch() {
         setTheme(id as string)
       }}
     >
-      {THEMES_OPTIONS.map((theme) => {
-        return (
-          <button
-            key={theme.id}
-            className="inline-flex h-7 w-7 items-center justify-center text-zinc-500 transition-colors duration-100 focus-visible:outline-2 data-[checked=true]:text-zinc-950 dark:text-zinc-400 dark:data-[checked=true]:text-zinc-50"
-            type="button"
-            aria-label={`Switch to ${theme.label} theme`}
-            data-id={theme.id}
-          >
-            {theme.icon}
-          </button>
-        )
-      })}
+      {THEME_OPTIONS.map(({ label, id, icon: Icon }) => (
+        <button
+          key={id}
+          data-id={id}
+          type="button"
+          aria-label={`Switch to ${label} theme`}
+          className="inline-flex h-8 w-9 items-center justify-center border-l border-divider text-text transition-colors duration-150 first:border-l-0 data-[checked=true]:text-bg"
+        >
+          <Icon className="h-[15px] w-[15px]" strokeWidth={2} />
+        </button>
+      ))}
     </AnimatedBackground>
   )
 }
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-zinc-100 px-0 py-4 dark:border-zinc-800">
-      <div className="flex items-center justify-between">
-        <a href="https://github.com/gastonginestet/gginestet-site" target="_blank">
-          <TextLoop className="text-xs text-zinc-500">
-            <span>Welcome!</span>
-            <span>Bienvenido/a!</span>
-          </TextLoop>
-        </a>
-        <div className="text-xs text-zinc-400">
-          <ThemeSwitch />
-        </div>
+    <footer className="mx-auto mt-16 flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-3 border-t-2 border-divider px-5 py-5 min-[760px]:px-8">
+      <span className="text-xs text-text/60">Welcome! · Bienvenido/a!</span>
+      <div className="inline-flex overflow-hidden border border-divider">
+        <ThemeSwitch />
       </div>
     </footer>
   )

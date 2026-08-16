@@ -27,6 +27,14 @@
   ---break---
 */
 :root {
+  --page-bg: #f3f2f2;
+  --page-surface: #eae9e9;
+  --page-text: #201e1d;
+  --page-divider: color-mix(in srgb, #201e1d 40%, transparent);
+  --page-accent: #ec3013;
+  --page-accent-600: #dd2b0f;
+  --page-accent-700: #ae1800;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -65,6 +73,11 @@
   ---break---
 */
 .dark {
+  --page-bg: #1c1a19;
+  --page-surface: #272423;
+  --page-text: #f3f2f2;
+  --page-divider: color-mix(in srgb, #f3f2f2 40%, transparent);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -102,6 +115,15 @@
   ---break---
 */
 @theme inline {
+  --color-bg: var(--page-bg);
+  --color-surface: var(--page-surface);
+  --color-text: var(--page-text);
+  --color-divider: var(--page-divider);
+  --color-accent: var(--page-accent);
+  --color-accent-600: var(--page-accent-600);
+  --color-accent-700: var(--page-accent-700);
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -114,7 +136,6 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -147,6 +168,19 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-bg text-text;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  a {
+    color: var(--color-accent-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--color-accent);
   }
 }
