@@ -8,6 +8,7 @@ export type TranslationSet = {
   fact1: string
   fact2: string
   ctaGetInTouch: string
+  ctaGetInTouchSubject: string
   ctaDownloadCV: string
   stackHeading: string
   workHeading: string
@@ -41,6 +42,7 @@ export const TRANSLATIONS: Record<Lang, TranslationSet> = {
     fact1: 'Ruby on Rails · 5+ years',
     fact2: 'Buenos Aires, Argentina — Remote',
     ctaGetInTouch: 'Get in touch',
+    ctaGetInTouchSubject: 'Hi Gaston',
     ctaDownloadCV: 'Download CV',
     stackHeading: 'Stack',
     workHeading: 'Work Experience',
@@ -80,6 +82,7 @@ export const TRANSLATIONS: Record<Lang, TranslationSet> = {
     fact1: 'Ruby on Rails · 5+ años',
     fact2: 'Buenos Aires, Argentina — Remoto',
     ctaGetInTouch: 'Contactarme',
+    ctaGetInTouchSubject: 'Hola Gaston',
     ctaDownloadCV: 'Descargar CV',
     stackHeading: 'Stack',
     workHeading: 'Experiencia laboral',

@@ -60,7 +60,7 @@ export function Header() {
 
           <div className="flex flex-wrap gap-3">
             <a
-              href={`mailto:${EMAIL}`}
+              href={`mailto:${EMAIL}?subject=${encodeURIComponent(t.ctaGetInTouchSubject)}`}
               className="group inline-flex items-center gap-1.5 bg-accent px-4 py-2 text-sm font-extrabold text-bg no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:text-black hover:shadow-sm active:translate-y-0"
             >
               {t.ctaGetInTouch}
