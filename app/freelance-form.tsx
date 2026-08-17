@@ -73,7 +73,7 @@ export function FreelanceForm() {
       <button
         type="submit"
         disabled={sending}
-        className="group inline-flex w-fit items-center gap-1.5 self-start bg-accent px-4 py-2 text-sm font-extrabold text-bg no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:text-black hover:shadow-sm active:translate-y-0 disabled:pointer-events-none disabled:opacity-45"
+        className="group bg-accent text-bg inline-flex w-fit items-center gap-1.5 self-start px-4 py-2 text-sm font-extrabold no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:text-black hover:shadow-sm active:translate-y-0 disabled:pointer-events-none disabled:opacity-45"
       >
         {sending ? t.freelanceCtaSending : t.freelanceCta}
         <ArrowUpRight
@@ -82,10 +82,10 @@ export function FreelanceForm() {
         />
       </button>
       {status === 'success' && (
-        <p className="text-[13px] text-text/75">{t.formSuccess}</p>
+        <p className="text-text/75 text-[13px]">{t.formSuccess}</p>
       )}
       {status === 'error' && (
-        <p className="text-[13px] text-accent-700">{t.formError}</p>
+        <p className="text-accent-700 text-[13px]">{t.formError}</p>
       )}
     </form>
   )

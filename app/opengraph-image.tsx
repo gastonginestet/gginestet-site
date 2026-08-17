@@ -16,7 +16,9 @@ async function loadArchivo(weight: number, text: string) {
       `https://fonts.googleapis.com/css2?family=Archivo:wght@${weight}&text=${encodeURIComponent(text)}`,
     )
   ).text()
-  const match = css.match(/src: url\(([^)]+)\) format\('(?:opentype|truetype)'\)/)
+  const match = css.match(
+    /src: url\(([^)]+)\) format\('(?:opentype|truetype)'\)/,
+  )
   if (!match) throw new Error('Could not resolve Archivo font URL')
   const res = await fetch(match[1])
   return res.arrayBuffer()

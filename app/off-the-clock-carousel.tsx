@@ -82,7 +82,7 @@ export function OffTheClockCarousel() {
 
       <div
         ref={wrapRef}
-        className="relative min-w-0 max-w-full flex-1 touch-pan-y overflow-hidden select-none"
+        className="relative max-w-full min-w-0 flex-1 touch-pan-y overflow-hidden select-none"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -99,7 +99,7 @@ export function OffTheClockCarousel() {
           {IMAGES.map((photo) => (
             <div
               key={photo.src}
-              className="relative h-[260px] shrink-0 bg-bg min-[760px]:h-[460px]"
+              className="bg-bg relative h-[260px] shrink-0 min-[760px]:h-[460px]"
               style={{ width: `${100 / total}%` }}
             >
               <Image

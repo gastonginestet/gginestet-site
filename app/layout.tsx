@@ -53,7 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${archivo.variable} bg-bg font-sans text-text antialiased`}>
+      <body
+        className={`${archivo.variable} bg-bg text-text font-sans antialiased`}
+      >
         <ThemeProvider
           enableSystem={true}
           attribute="class"

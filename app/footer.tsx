@@ -40,7 +40,7 @@ function LangSwitch() {
           data-id={id}
           type="button"
           aria-label={`Switch to ${label}`}
-          className="inline-flex h-8 items-center justify-center border-l border-divider px-3 text-xs font-bold text-text transition-colors duration-150 first:border-l-0 data-[checked=true]:text-bg"
+          className="border-divider text-text data-[checked=true]:text-bg inline-flex h-8 items-center justify-center border-l px-3 text-xs font-bold transition-colors duration-150 first:border-l-0"
         >
           {label}
         </button>
@@ -81,7 +81,7 @@ function ThemeSwitch() {
           data-id={id}
           type="button"
           aria-label={`Switch to ${label} theme`}
-          className="inline-flex h-8 w-9 items-center justify-center border-l border-divider text-text transition-colors duration-150 first:border-l-0 data-[checked=true]:text-bg"
+          className="border-divider text-text data-[checked=true]:text-bg inline-flex h-8 w-9 items-center justify-center border-l transition-colors duration-150 first:border-l-0"
         >
           <Icon className="h-[15px] w-[15px]" strokeWidth={2} />
         </button>
@@ -92,13 +92,13 @@ function ThemeSwitch() {
 
 export function Footer() {
   return (
-    <footer className="mx-auto mt-16 flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-3 border-t-2 border-divider px-5 py-5 min-[760px]:px-8">
-      <span className="text-xs text-text/60">Welcome! · Bienvenido/a!</span>
+    <footer className="border-divider mx-auto mt-16 flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-3 border-t-2 px-5 py-5 min-[760px]:px-8">
+      <span className="text-text/60 text-xs">Welcome! · Bienvenido/a!</span>
       <div className="flex items-center gap-3">
-        <div className="inline-flex overflow-hidden border border-divider">
+        <div className="border-divider inline-flex overflow-hidden border">
           <LangSwitch />
         </div>
-        <div className="inline-flex overflow-hidden border border-divider">
+        <div className="border-divider inline-flex overflow-hidden border">
           <ThemeSwitch />
         </div>
       </div>

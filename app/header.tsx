@@ -11,18 +11,18 @@ export function Header() {
     <section className="px-5 pt-10 min-[760px]:px-8 min-[760px]:pt-[72px]">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-6 min-[760px]:grid-cols-[1.05fr_0.95fr] min-[760px]:grid-rows-2 min-[760px]:items-stretch min-[760px]:gap-x-14 min-[760px]:gap-y-2">
         <div className="order-1 min-[760px]:order-none min-[760px]:col-start-1 min-[760px]:row-start-1">
-          <p className="mb-2.5 text-[13px] tracking-[0.12em] text-accent-700 uppercase">
+          <p className="text-accent-700 mb-2.5 text-[13px] tracking-[0.12em] uppercase">
             {t.kicker}
           </p>
           <h1 className="text-[44px] tracking-[-0.02em] min-[760px]:text-[68px]">
             Gaston Ginestet
           </h1>
-          <h2 className="mt-1.5 text-2xl font-normal tracking-[0.03em] text-text uppercase">
+          <h2 className="text-text mt-1.5 text-2xl font-normal tracking-[0.03em] uppercase">
             {t.role}
           </h2>
         </div>
 
-        <div className="order-2 flex items-end justify-center min-[760px]:order-none min-[760px]:col-start-2 min-[760px]:row-start-1 min-[760px]:row-span-2">
+        <div className="order-2 flex items-end justify-center min-[760px]:order-none min-[760px]:col-start-2 min-[760px]:row-span-2 min-[760px]:row-start-1">
           <Image
             src="/gaston-cutout.png"
             alt="Gaston Ginestet"
@@ -34,25 +34,27 @@ export function Header() {
         </div>
 
         <div className="order-3 min-[760px]:order-none min-[760px]:col-start-1 min-[760px]:row-start-2">
-          <p className="mb-5 max-w-[46ch] text-base text-text/75">{t.tagline}</p>
+          <p className="text-text/75 mb-5 max-w-[46ch] text-base">
+            {t.tagline}
+          </p>
 
-          <div className="mb-5 inline-flex items-center gap-2 border border-divider px-2.5 py-1.5">
-            <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-accent" />
-            <span className="text-xs tracking-[0.06em] text-text uppercase">
+          <div className="border-divider mb-5 inline-flex items-center gap-2 border px-2.5 py-1.5">
+            <span className="bg-accent h-[7px] w-[7px] shrink-0 rounded-full" />
+            <span className="text-text text-xs tracking-[0.06em] uppercase">
               {t.freelanceBadge}
             </span>
           </div>
 
           <div className="mb-8 flex flex-col gap-2">
             <div className="flex items-center gap-2.5">
-              <span className="h-0.5 w-3.5 shrink-0 bg-accent" />
-              <span className="text-xs tracking-[0.08em] text-text uppercase">
+              <span className="bg-accent h-0.5 w-3.5 shrink-0" />
+              <span className="text-text text-xs tracking-[0.08em] uppercase">
                 {t.fact1}
               </span>
             </div>
             <div className="flex items-center gap-2.5">
-              <span className="h-0.5 w-3.5 shrink-0 bg-accent" />
-              <span className="text-xs tracking-[0.08em] text-text uppercase">
+              <span className="bg-accent h-0.5 w-3.5 shrink-0" />
+              <span className="text-text text-xs tracking-[0.08em] uppercase">
                 {t.fact2}
               </span>
             </div>
@@ -61,7 +63,7 @@ export function Header() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`mailto:${EMAIL}?subject=${encodeURIComponent(t.ctaGetInTouchSubject)}`}
-              className="group inline-flex items-center gap-1.5 bg-accent px-4 py-2 text-sm font-extrabold text-bg no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:text-black hover:shadow-sm active:translate-y-0"
+              className="group bg-accent text-bg inline-flex items-center gap-1.5 px-4 py-2 text-sm font-extrabold no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:text-black hover:shadow-sm active:translate-y-0"
             >
               {t.ctaGetInTouch}
               <ArrowUpRight
@@ -72,7 +74,7 @@ export function Header() {
             <a
               href="/gaston_ginestet_cv.pdf"
               download
-              className="inline-flex items-center gap-1.5 border border-divider px-4 py-2 text-sm font-extrabold text-text no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:bg-text/[0.07] hover:shadow-sm active:translate-y-0 active:bg-text/[0.14]"
+              className="border-divider text-text hover:bg-text/[0.07] active:bg-text/[0.14] inline-flex items-center gap-1.5 border px-4 py-2 text-sm font-extrabold no-underline transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:shadow-sm active:translate-y-0"
             >
               {t.ctaDownloadCV}
             </a>
