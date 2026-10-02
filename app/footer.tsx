@@ -49,6 +49,8 @@ function LangSwitch() {
   )
 }
 
+// Kept for when dark mode comes back; not rendered while the site is light only.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -98,9 +100,11 @@ export function Footer() {
         <div className="border-divider inline-flex overflow-hidden border">
           <LangSwitch />
         </div>
+        {/* Theme switch disabled: the site is light mode only for now.
         <div className="border-divider inline-flex overflow-hidden border">
           <ThemeSwitch />
         </div>
+        */}
       </div>
     </footer>
   )

@@ -57,10 +57,11 @@ export default function RootLayout({
         className={`${archivo.variable} bg-bg text-text font-sans antialiased`}
       >
         <ThemeProvider
-          enableSystem={true}
+          enableSystem={false}
           attribute="class"
           storageKey="theme"
-          defaultTheme="system"
+          defaultTheme="light"
+          forcedTheme="light"
         >
           <LanguageProvider>
             <div className="flex min-h-screen w-full flex-col">
