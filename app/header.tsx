@@ -24,10 +24,10 @@ export function Header() {
 
         <div className="order-2 flex items-end justify-center min-[760px]:order-none min-[760px]:col-start-2 min-[760px]:row-span-2 min-[760px]:row-start-1">
           <Image
-            src="/gaston-cutout.png"
+            src="/gaston-profile.png"
             alt="Gaston Ginestet"
-            width={1763}
-            height={1849}
+            width={1800}
+            height={2053}
             className="h-auto w-full max-w-[420px] object-contain"
             priority
           />
